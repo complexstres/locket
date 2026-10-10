@@ -1,0 +1,86 @@
+{
+  "name": "locket",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "description": "Local vault for passwords, mail, and SSH",
+  "author": "Locket",
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,cyan \"npm run server\" \"npm run client\"",
+    "dev:desktop": "concurrently -n api,web,app -c green,cyan,magenta \"npm run server\" \"npm run client\" \"wait-on http://localhost:5173 http://127.0.0.1:3847/api/status && electron . --no-sandbox\"",
+    "client": "vite",
+    "server": "tsx server/index.ts",
+    "build": "tsc -b && vite build",
+    "desktop": "npm run build && LOCKET_DEV=0 electron . --no-sandbox",
+    "start:desktop": "npm run desktop",
+    "pack:linux": "npm run build && electron-builder --linux AppImage dir",
+    "install:desktop": "bash scripts/install-desktop.sh",
+    "install:extension": "bash scripts/install-extension.sh",
+    "test:ext": "node scripts/e2e-ext-hub-picker.mjs",
+    "preview": "vite preview",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@zxing/browser": "^0.2.1",
+    "@zxing/library": "^0.23.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "imapflow": "^2.2.7",
+    "jimp": "^1.6.1",
+    "jsqr": "^1.4.0",
+    "mailparser": "^3.9.36",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.5",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/mailparser": "^3.9.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "electron": "^44.6.0",
+    "electron-builder": "^26.15.3",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.locket.desktop",
+    "productName": "Locket",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "server/**/*",
+      "package.json",
+      "node_modules/**/*",
+      "build/icon.png"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "dir"
+      ],
+      "category": "Utility",
+      "icon": "build/icon.png",
+      "desktop": {
+        "Name": "Locket",
+        "Comment": "Password, mail, and SSH vault",
+        "Terminal": "false",
+        "Type": "Application",
+        "Categories": "Utility;Security;"
+      }
+    }
+  }
+}

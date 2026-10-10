@@ -1,0 +1,90 @@
+:root {
+  --bg: #0f1412;
+  --bg-elevated: #151b18;
+  --bg-panel: #1a211d;
+  --bg-soft: #222a25;
+  --ink: #eef2ef;
+  --ink-soft: #9aaca1;
+  --accent: #8fbf9a;
+  --accent-bright: #b7d9bf;
+  --accent-deep: #2a3d31;
+  --sage: #8fbf9a;
+  --sage-bright: #c5e0cc;
+  --sage-deep: #1e2e24;
+  --line: rgba(143, 191, 154, 0.12);
+  --line-strong: rgba(143, 191, 154, 0.22);
+  --danger: #f07167;
+  --warn: #e0b15b;
+  --ok: #8fbf9a;
+  --shadow: 0 20px 56px rgba(0, 0, 0, 0.55);
+  --radius: 14px;
+  --font: 'Figtree', 'Cantarell', 'Ubuntu', system-ui, sans-serif;
+  --display: 'Syne', 'Cantarell', sans-serif;
+  --titlebar-h: 40px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(980px 560px at 8% -10%, rgba(143, 191, 154, 0.14), transparent 58%),
+    radial-gradient(720px 480px at 100% 110%, rgba(143, 191, 154, 0.07), transparent 52%),
+    linear-gradient(180deg, #121916 0%, var(--bg) 42%, #0c100e 100%);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
+
+body.desktop-app {
+  border: 1px solid var(--line-strong);
+}

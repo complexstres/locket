@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Figtree, system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        width: 340px;
+        background: #121214;
+        color: #f4f4f5;
+      }
+      header {
+        padding: 12px 14px 8px;
+        border-bottom: 1px solid #27272a;
+      }
+      h1 {
+        margin: 0;
+        font-size: 15px;
+      }
+      .sub {
+        margin: 4px 0 0;
+        font-size: 11px;
+        color: #a1a1aa;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 8px;
+        background: #0e0e10;
+        border: 1px solid #3f3f46;
+        border-radius: 8px;
+        color: inherit;
+        padding: 8px 10px;
+      }
+      #list {
+        max-height: 360px;
+        overflow: auto;
+      }
+      .item {
+        width: 100%;
+        text-align: left;
+        border: 0;
+        border-bottom: 1px solid #27272a;
+        background: transparent;
+        color: inherit;
+        padding: 10px 14px;
+        cursor: pointer;
+      }
+      .item:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .item strong {
+        display: block;
+        font-size: 13px;
+      }
+      .item span {
+        font-size: 11px;
+        color: #a1a1aa;
+      }
+      .err {
+        padding: 12px 14px;
+        color: #f0a0a0;
+        font-size: 12px;
+      }
+      footer {
+        padding: 8px 14px;
+        border-top: 1px solid #27272a;
+        font-size: 11px;
+        color: #a1a1aa;
+      }
+      a {
+        color: #d4d4d8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Locket</h1>
+      <p class="sub" id="host">—</p>
+      <input id="q" placeholder="Search…" autofocus />
+    </header>
+    <div id="list"></div>
+    <div class="err" id="err" hidden></div>
+    <footer>
+      <a href="options.html" target="_blank">Token settings</a>
+      · click = fill form
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

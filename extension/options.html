@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Locket — settings</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #121214;
+        color: #f4f4f5;
+        max-width: 520px;
+        margin: 40px auto;
+        padding: 0 16px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 80px;
+        background: #0e0e10;
+        color: inherit;
+        border: 1px solid #3f3f46;
+        border-radius: 8px;
+        padding: 10px;
+      }
+      button {
+        margin-top: 10px;
+        background: #e4e4e7;
+        color: #18181b;
+        border: 0;
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .ok {
+        color: #9fbfad;
+        margin-top: 10px;
+      }
+      code {
+        background: #27272a;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Locket Autofill</h1>
+    <p>
+      1. In Locket open the <strong>Vault</strong> tab → Browser section →
+      <strong>Enable</strong> and copy the token.<br />
+      2. Paste the token here and save.<br />
+      3. Locket must be running (API at <code>127.0.0.1:3847</code>).
+    </p>
+    <label>Extension token</label>
+    <textarea id="token" placeholder="64 hex characters…"></textarea>
+    <button id="save">Save</button>
+    <div class="ok" id="msg"></div>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
